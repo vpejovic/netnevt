@@ -1,0 +1,94 @@
+// dot 2.38.0 on Windows 8 6.2
+// SchemaSpy rev 590
+digraph "ne_50m_admin_0_countries" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "ne_50m_admin_0_countries" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">ne_50m_admin_0_countries</TD></TR>
+      <TR><TD PORT="gid" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">gid</TD></TR>
+      <TR><TD PORT="scalerank" COLSPAN="3" ALIGN="LEFT">scalerank</TD></TR>
+      <TR><TD PORT="featurecla" COLSPAN="3" ALIGN="LEFT">featurecla</TD></TR>
+      <TR><TD PORT="labelrank" COLSPAN="3" ALIGN="LEFT">labelrank</TD></TR>
+      <TR><TD PORT="sovereignt" COLSPAN="3" ALIGN="LEFT">sovereignt</TD></TR>
+      <TR><TD PORT="sov_a3" COLSPAN="3" ALIGN="LEFT">sov_a3</TD></TR>
+      <TR><TD PORT="adm0_dif" COLSPAN="3" ALIGN="LEFT">adm0_dif</TD></TR>
+      <TR><TD PORT="level" COLSPAN="3" ALIGN="LEFT">level</TD></TR>
+      <TR><TD PORT="type" COLSPAN="3" ALIGN="LEFT">type</TD></TR>
+      <TR><TD PORT="admin" COLSPAN="3" ALIGN="LEFT">admin</TD></TR>
+      <TR><TD PORT="adm0_a3" COLSPAN="3" ALIGN="LEFT">adm0_a3</TD></TR>
+      <TR><TD PORT="geou_dif" COLSPAN="3" ALIGN="LEFT">geou_dif</TD></TR>
+      <TR><TD PORT="geounit" COLSPAN="3" ALIGN="LEFT">geounit</TD></TR>
+      <TR><TD PORT="gu_a3" COLSPAN="3" ALIGN="LEFT">gu_a3</TD></TR>
+      <TR><TD PORT="su_dif" COLSPAN="3" ALIGN="LEFT">su_dif</TD></TR>
+      <TR><TD PORT="subunit" COLSPAN="3" ALIGN="LEFT">subunit</TD></TR>
+      <TR><TD PORT="su_a3" COLSPAN="3" ALIGN="LEFT">su_a3</TD></TR>
+      <TR><TD PORT="brk_diff" COLSPAN="3" ALIGN="LEFT">brk_diff</TD></TR>
+      <TR><TD PORT="name" COLSPAN="3" ALIGN="LEFT">name</TD></TR>
+      <TR><TD PORT="name_long" COLSPAN="3" ALIGN="LEFT">name_long</TD></TR>
+      <TR><TD PORT="brk_a3" COLSPAN="3" ALIGN="LEFT">brk_a3</TD></TR>
+      <TR><TD PORT="brk_name" COLSPAN="3" ALIGN="LEFT">brk_name</TD></TR>
+      <TR><TD PORT="brk_group" COLSPAN="3" ALIGN="LEFT">brk_group</TD></TR>
+      <TR><TD PORT="abbrev" COLSPAN="3" ALIGN="LEFT">abbrev</TD></TR>
+      <TR><TD PORT="postal" COLSPAN="3" ALIGN="LEFT">postal</TD></TR>
+      <TR><TD PORT="formal_en" COLSPAN="3" ALIGN="LEFT">formal_en</TD></TR>
+      <TR><TD PORT="formal_fr" COLSPAN="3" ALIGN="LEFT">formal_fr</TD></TR>
+      <TR><TD PORT="note_adm0" COLSPAN="3" ALIGN="LEFT">note_adm0</TD></TR>
+      <TR><TD PORT="note_brk" COLSPAN="3" ALIGN="LEFT">note_brk</TD></TR>
+      <TR><TD PORT="name_sort" COLSPAN="3" ALIGN="LEFT">name_sort</TD></TR>
+      <TR><TD PORT="name_alt" COLSPAN="3" ALIGN="LEFT">name_alt</TD></TR>
+      <TR><TD PORT="mapcolor7" COLSPAN="3" ALIGN="LEFT">mapcolor7</TD></TR>
+      <TR><TD PORT="mapcolor8" COLSPAN="3" ALIGN="LEFT">mapcolor8</TD></TR>
+      <TR><TD PORT="mapcolor9" COLSPAN="3" ALIGN="LEFT">mapcolor9</TD></TR>
+      <TR><TD PORT="mapcolor13" COLSPAN="3" ALIGN="LEFT">mapcolor13</TD></TR>
+      <TR><TD PORT="pop_est" COLSPAN="3" ALIGN="LEFT">pop_est</TD></TR>
+      <TR><TD PORT="gdp_md_est" COLSPAN="3" ALIGN="LEFT">gdp_md_est</TD></TR>
+      <TR><TD PORT="pop_year" COLSPAN="3" ALIGN="LEFT">pop_year</TD></TR>
+      <TR><TD PORT="lastcensus" COLSPAN="3" ALIGN="LEFT">lastcensus</TD></TR>
+      <TR><TD PORT="gdp_year" COLSPAN="3" ALIGN="LEFT">gdp_year</TD></TR>
+      <TR><TD PORT="economy" COLSPAN="3" ALIGN="LEFT">economy</TD></TR>
+      <TR><TD PORT="income_grp" COLSPAN="3" ALIGN="LEFT">income_grp</TD></TR>
+      <TR><TD PORT="wikipedia" COLSPAN="3" ALIGN="LEFT">wikipedia</TD></TR>
+      <TR><TD PORT="fips_10" COLSPAN="3" ALIGN="LEFT">fips_10</TD></TR>
+      <TR><TD PORT="iso_a2" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">iso_a2</TD></TR>
+      <TR><TD PORT="iso_a3" COLSPAN="3" ALIGN="LEFT">iso_a3</TD></TR>
+      <TR><TD PORT="iso_n3" COLSPAN="3" ALIGN="LEFT">iso_n3</TD></TR>
+      <TR><TD PORT="un_a3" COLSPAN="3" ALIGN="LEFT">un_a3</TD></TR>
+      <TR><TD PORT="wb_a2" COLSPAN="3" ALIGN="LEFT">wb_a2</TD></TR>
+      <TR><TD PORT="wb_a3" COLSPAN="3" ALIGN="LEFT">wb_a3</TD></TR>
+      <TR><TD PORT="woe_id" COLSPAN="3" ALIGN="LEFT">woe_id</TD></TR>
+      <TR><TD PORT="adm0_a3_is" COLSPAN="3" ALIGN="LEFT">adm0_a3_is</TD></TR>
+      <TR><TD PORT="adm0_a3_us" COLSPAN="3" ALIGN="LEFT">adm0_a3_us</TD></TR>
+      <TR><TD PORT="adm0_a3_un" COLSPAN="3" ALIGN="LEFT">adm0_a3_un</TD></TR>
+      <TR><TD PORT="adm0_a3_wb" COLSPAN="3" ALIGN="LEFT">adm0_a3_wb</TD></TR>
+      <TR><TD PORT="continent" COLSPAN="3" ALIGN="LEFT">continent</TD></TR>
+      <TR><TD PORT="region_un" COLSPAN="3" ALIGN="LEFT">region_un</TD></TR>
+      <TR><TD PORT="subregion" COLSPAN="3" ALIGN="LEFT">subregion</TD></TR>
+      <TR><TD PORT="region_wb" COLSPAN="3" ALIGN="LEFT">region_wb</TD></TR>
+      <TR><TD PORT="name_len" COLSPAN="3" ALIGN="LEFT">name_len</TD></TR>
+      <TR><TD PORT="long_len" COLSPAN="3" ALIGN="LEFT">long_len</TD></TR>
+      <TR><TD PORT="abbrev_len" COLSPAN="3" ALIGN="LEFT">abbrev_len</TD></TR>
+      <TR><TD PORT="tiny" COLSPAN="3" ALIGN="LEFT">tiny</TD></TR>
+      <TR><TD PORT="homepart" COLSPAN="3" ALIGN="LEFT">homepart</TD></TR>
+      <TR><TD PORT="the_geom" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">the_geom</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">241 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/ne_50m_admin_0_countries.html"
+    tooltip="ne_50m_admin_0_countries"
+  ];
+}

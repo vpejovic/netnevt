@@ -1,0 +1,41 @@
+// dot 2.38.0 on Windows 8 6.2
+// SchemaSpy rev 590
+digraph "si_municipality" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "si_municipality" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">si_municipality</TD></TR>
+      <TR><TD PORT="gid" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">gid</TD></TR>
+      <TR><TD PORT="ob_mid" COLSPAN="3" ALIGN="LEFT">ob_mid</TD></TR>
+      <TR><TD PORT="ob_id" COLSPAN="3" ALIGN="LEFT">ob_id</TD></TR>
+      <TR><TD PORT="ob_ime" COLSPAN="3" ALIGN="LEFT">ob_ime</TD></TR>
+      <TR><TD PORT="ob_uime" COLSPAN="3" ALIGN="LEFT">ob_uime</TD></TR>
+      <TR><TD PORT="ob_dj" COLSPAN="3" ALIGN="LEFT">ob_dj</TD></TR>
+      <TR><TD PORT="ob_tip" COLSPAN="3" ALIGN="LEFT">ob_tip</TD></TR>
+      <TR><TD PORT="d_od" COLSPAN="3" ALIGN="LEFT">d_od</TD></TR>
+      <TR><TD PORT="povrsina" COLSPAN="3" ALIGN="LEFT">povrsina</TD></TR>
+      <TR><TD PORT="y_c" COLSPAN="3" ALIGN="LEFT">y_c</TD></TR>
+      <TR><TD PORT="x_c" COLSPAN="3" ALIGN="LEFT">x_c</TD></TR>
+      <TR><TD PORT="geom" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">geom</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">212 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/si_municipality.html"
+    tooltip="si_municipality"
+  ];
+}

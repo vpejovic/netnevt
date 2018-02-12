@@ -1,0 +1,47 @@
+// dot 2.38.0 on Windows 8 6.2
+// SchemaSpy rev 590
+digraph "cell2earth" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "cell2earth" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">cell2earth</TD></TR>
+      <TR><TD PORT="location_id" COLSPAN="3" ALIGN="LEFT">location_id</TD></TR>
+      <TR><TD PORT="area_code" COLSPAN="3" ALIGN="LEFT">area_code</TD></TR>
+      <TR><TD PORT="network_operator" COLSPAN="3" ALIGN="LEFT">network_operator</TD></TR>
+      <TR><TD PORT="provider" COLSPAN="3" ALIGN="LEFT">provider</TD></TR>
+      <TR><TD PORT="network_group_name" COLSPAN="3" ALIGN="LEFT">network_group_name</TD></TR>
+      <TR><TD PORT="count" COLSPAN="3" ALIGN="LEFT">count</TD></TR>
+      <TR><TD PORT="avg_accuracy" COLSPAN="3" ALIGN="LEFT">avg_accuracy</TD></TR>
+      <TR><TD PORT="sd_accuracy" COLSPAN="3" ALIGN="LEFT">sd_accuracy</TD></TR>
+      <TR><TD PORT="min_accuracy" COLSPAN="3" ALIGN="LEFT">min_accuracy</TD></TR>
+      <TR><TD PORT="max_accuracy" COLSPAN="3" ALIGN="LEFT">max_accuracy</TD></TR>
+      <TR><TD PORT="avg_geo_lat" COLSPAN="3" ALIGN="LEFT">avg_geo_lat</TD></TR>
+      <TR><TD PORT="sd_geo_lat" COLSPAN="3" ALIGN="LEFT">sd_geo_lat</TD></TR>
+      <TR><TD PORT="min_geo_lat" COLSPAN="3" ALIGN="LEFT">min_geo_lat</TD></TR>
+      <TR><TD PORT="max_geo_lat" COLSPAN="3" ALIGN="LEFT">max_geo_lat</TD></TR>
+      <TR><TD PORT="avg_geo_long" COLSPAN="3" ALIGN="LEFT">avg_geo_long</TD></TR>
+      <TR><TD PORT="sd_geo_long" COLSPAN="3" ALIGN="LEFT">sd_geo_long</TD></TR>
+      <TR><TD PORT="min_geo_long" COLSPAN="3" ALIGN="LEFT">min_geo_long</TD></TR>
+      <TR><TD PORT="max_geo_long" COLSPAN="3" ALIGN="LEFT">max_geo_long</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">view</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/cell2earth.html"
+    tooltip="cell2earth"
+  ];
+}

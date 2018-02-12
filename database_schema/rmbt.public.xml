@@ -1,0 +1,1329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="rmbt" schema="public" type="PostgreSQL - 9.4.4">
+   <tables>
+      <table name="as2provider" numRows="11" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('as2provider_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="asn" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="2" name="dns_part" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="provider_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="uid" foreignKey="as2provider_provider_id_fkey" implied="false" onDeleteCascade="false" table="provider"/>
+         </column>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="as2provider_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="as2provider_provider_id_idx" unique="false">
+            <column ascending="true" name="provider_id"/>
+         </index>
+      </table>
+      <table name="base_stations" numRows="26779" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('base_stations_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="technology" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="location_name" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="3" name="longitude" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="latitude" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="5" name="mnc" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="ci" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="lac" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="8" name="enb" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="9" name="physical_cell_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="10" name="eci" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="11" name="tac" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="12" name="rf_band" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="base_stations_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+      </table>
+      <table name="cell" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="test_id" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="1" name="location_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="area_code" nullable="true" remarks="" size="10" type="int4"/>
+      </table>
+      <table name="cell2earth" numRows="0" remarks="Used in display of cells for Google Earth" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="location_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="1" name="area_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="network_operator" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="provider" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="network_group_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="count" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="17" id="6" name="avg_accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="7" name="sd_accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="8" name="min_accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="max_accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="avg_geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="11" name="sd_geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="min_geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="max_geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="14" name="avg_geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="15" name="sd_geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="16" name="min_geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="17" name="max_geo_long" nullable="true" remarks="" size="17" type="float8"/>
+      </table>
+      <table name="cell_geo_test" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="test_id" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="1" name="location_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="area_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="test_id2" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="4" name="provider" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="5" name="accuracy_rd" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="6" name="lat_rd" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="7" name="long_rd" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="8" name="uid" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="9" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="0" id="10" name="client_id" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="11" name="client_version" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="12" name="client_name" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="13" name="client_language" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="14" name="client_local_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="15" name="token" nullable="true" remarks="" size="500" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="16" name="server_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="17" name="port" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="18" name="use_ssl" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="6" id="19" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="20" name="speed_upload" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="21" name="speed_download" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="22" name="ping_shortest" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="23" name="encryption" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="24" name="client_public_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="25" name="plattform" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="26" name="os_version" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="27" name="api_level" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="28" name="device" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="29" name="model" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="30" name="product" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="31" name="phone_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="32" name="data_state" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="33" name="network_country" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="34" name="network_operator" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="35" name="network_operator_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="36" name="network_sim_country" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="37" name="network_sim_operator" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="38" name="network_sim_operator_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="39" name="wifi_ssid" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="40" name="wifi_bssid" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="41" name="wifi_network_id" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="42" name="duration" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="43" name="num_threads" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="44" name="status" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="45" name="timezone" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="46" name="bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="47" name="bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="48" name="nsec_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="49" name="nsec_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="50" name="server_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="51" name="client_software_version" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="52" name="geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="53" name="geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="54" name="network_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="55" name="location" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <column autoUpdated="false" digits="0" id="56" name="signal_strength" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="57" name="software_revision" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="58" name="client_test_counter" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="59" name="nat_type" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="60" name="client_previous_test_status" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="61" name="public_ip_asn" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="17" id="62" name="speed_upload_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="63" name="speed_download_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="64" name="total_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="65" name="total_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="66" name="wifi_link_speed" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="67" name="public_ip_rdns" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="68" name="public_ip_as_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="69" name="test_slot" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="70" name="provider_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="71" name="network_is_roaming" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="17" id="72" name="ping_shortest_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="73" name="run_ndt" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="74" name="num_threads_requested" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="75" name="client_public_ip_anonymized" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="76" name="zip_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="77" name="geo_provider" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="78" name="geo_accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="79" name="deleted" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="80" name="comment" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="81" name="open_uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="6" id="82" name="client_time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="83" name="zip_code_geo" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="84" name="mobile_provider_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="85" name="roaming_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="86" name="open_test_uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="0" id="87" name="country_asn" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="88" name="country_location" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="89" name="test_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="90" name="test_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="91" name="implausible" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="92" name="testdl_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="93" name="testdl_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="94" name="testul_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="95" name="testul_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="96" name="country_geoip" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="97" name="location_max_distance" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="98" name="location_max_distance_gps" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="99" name="network_group_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="100" name="network_group_type" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="101" name="time_dl_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="102" name="time_ul_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="103" name="num_threads_ul" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="6" id="104" name="timestamp" nullable="true" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="105" name="source_ip" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="106" name="lte_rsrp" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="107" name="lte_rsrq" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="108" name="mobile_network_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="109" name="mobile_sim_id" nullable="true" remarks="" size="10" type="int4"/>
+      </table>
+      <table name="cell_location" numRows="248464" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('cell_location_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="19" type="bigserial"/>
+         <column autoUpdated="false" digits="0" id="1" name="test_id" nullable="true" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="cell_location_test_id_fkey" implied="false" onDeleteCascade="true" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="location_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="area_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="6" id="4" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="5" name="primary_scrambling_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="time_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="cell_location_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="cell_location_test_id_idx" unique="false">
+            <column ascending="true" name="test_id"/>
+         </index>
+         <index name="cell_location_test_id_time_idx" unique="false">
+            <column ascending="true" name="test_id"/>
+            <column ascending="true" name="time"/>
+         </index>
+      </table>
+      <table name="client" numRows="80604" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('client_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="19" type="bigserial">
+            <child column="client_id" foreignKey="test_client_id_fkey" implied="false" onDeleteCascade="true" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="0" id="2" name="client_type_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="uid" foreignKey="client_client_type_id_fkey" implied="false" onDeleteCascade="false" table="client_type"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="3" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="4" name="sync_group_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="uid" foreignKey="client_sync_group_id" implied="false" onDeleteCascade="false" table="sync_group"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="5" name="sync_code" nullable="true" remarks="" size="12" type="varchar"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="6" name="terms_and_conditions_accepted" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="6" id="7" name="sync_code_timestamp" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="client_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="client_client_type_id_idx" unique="false">
+            <column ascending="true" name="client_type_id"/>
+         </index>
+         <index name="client_sync_code" unique="true">
+            <column ascending="true" name="sync_code"/>
+         </index>
+         <index name="client_sync_group_id_idx" unique="false">
+            <column ascending="true" name="sync_group_id"/>
+         </index>
+         <index name="client_uuid_key" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+      </table>
+      <table name="client_type" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('client_type_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial">
+            <child column="client_type_id" foreignKey="client_client_type_id_fkey" implied="false" onDeleteCascade="false" table="client"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="200" type="varchar"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="client_type_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+      </table>
+      <table name="device_map" numRows="6076" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('android_device_map_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="codename" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="fullname" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="source" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="6" id="4" name="timestamp" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="android_device_map_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="android_device_map_codename_key" unique="true">
+            <column ascending="true" name="codename"/>
+         </index>
+         <index name="device_map_fullname_key" unique="true">
+            <column ascending="true" name="fullname"/>
+         </index>
+      </table>
+      <table name="geo" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="test_id" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="1" name="provider" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="2" name="accuracy_rd" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="3" name="lat_rd" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="4" name="long_rd" nullable="true" remarks="" size="131089" type="numeric"/>
+      </table>
+      <table name="geo_location" numRows="1088077" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('location_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="19" type="bigserial"/>
+         <column autoUpdated="false" digits="0" id="1" name="test_id" nullable="false" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="location_test_id_fkey" implied="false" onDeleteCascade="true" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="2" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="17" id="3" name="accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="altitude" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="5" name="bearing" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="6" name="speed" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="7" name="provider" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="8" name="geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="10" name="location" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <column autoUpdated="false" digits="0" id="11" name="time_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="location_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="geo_location_location_idx" unique="false">
+            <column ascending="true" name="location"/>
+         </index>
+         <index name="geo_location_test_id_key" unique="false">
+            <column ascending="true" name="test_id"/>
+         </index>
+         <index name="geo_location_test_id_provider" unique="false">
+            <column ascending="true" name="test_id"/>
+            <column ascending="true" name="provider"/>
+         </index>
+         <index name="geo_location_test_id_provider_time_idx" unique="false">
+            <column ascending="true" name="test_id"/>
+            <column ascending="true" name="provider"/>
+            <column ascending="true" name="time"/>
+         </index>
+         <index name="geo_location_test_id_time_idx" unique="false">
+            <column ascending="true" name="test_id"/>
+            <column ascending="true" name="time"/>
+         </index>
+      </table>
+      <table name="geography_columns" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="f_table_catalog" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="1" name="f_table_schema" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="2" name="f_table_name" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="3" name="f_geography_column" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="4" name="coord_dimension" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="srid" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="type" nullable="true" remarks="" size="2147483647" type="text"/>
+      </table>
+      <table name="geometry_columns" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="f_table_catalog" nullable="true" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="1" name="f_table_schema" nullable="true" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="f_table_name" nullable="true" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="f_geometry_column" nullable="true" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="coord_dimension" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="srid" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="type" nullable="true" remarks="" size="30" type="varchar"/>
+      </table>
+      <table name="logged_actions" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="schema_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="1" name="table_name" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="user_name" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="3" name="action_tstamp" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="4" name="action" nullable="false" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="original_data" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="new_data" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="7" name="query" nullable="true" remarks="" size="2147483647" type="text"/>
+         <index name="logged_actions_action_idx" unique="false">
+            <column ascending="true" name="action"/>
+         </index>
+         <index name="logged_actions_action_tstamp_idx" unique="false">
+            <column ascending="true" name="action_tstamp"/>
+         </index>
+         <index name="logged_actions_schema_table_idx" unique="false"/>
+      </table>
+      <table name="mcc2country" numRows="211" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="mcc" nullable="false" remarks="" size="3" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="1" name="country" nullable="false" remarks="" size="2" type="varchar"/>
+         <primaryKey column="mcc" sequenceNumberInPK="1"/>
+         <index name="mcc2country_pkey" unique="true">
+            <column ascending="true" name="mcc"/>
+         </index>
+         <index name="mcc2country_mcc" unique="false">
+            <column ascending="true" name="mcc"/>
+         </index>
+      </table>
+      <table name="mccmnc2name" numRows="1650" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mccmnc2name_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="mccmnc" nullable="false" remarks="" size="7" type="varchar"/>
+         <column autoUpdated="false" defaultValue="'0001-01-01'::date" digits="0" id="2" name="valid_from" nullable="true" remarks="" size="13" type="date"/>
+         <column autoUpdated="false" defaultValue="'9999-12-31'::date" digits="0" id="3" name="valid_to" nullable="true" remarks="" size="13" type="date"/>
+         <column autoUpdated="false" digits="0" id="4" name="country" nullable="true" remarks="" size="2" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="name" nullable="false" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="shortname" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="7" name="use_for_sim" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="8" name="use_for_network" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="9" name="mcc_mnc_network_mapping" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="comment" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="11" name="mapped_uid" nullable="true" remarks="" size="10" type="int4"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="mccmnc2name_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="mccmnc2name_mccmnc" unique="false">
+            <column ascending="true" name="mccmnc"/>
+         </index>
+      </table>
+      <table name="mccmnc2provider" numRows="4" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('mccmnc2provider_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="mcc_mnc_sim" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="provider_id" nullable="false" remarks="" size="10" type="int4">
+            <parent column="uid" foreignKey="mccmnc2provider_provider_id_fkey" implied="false" onDeleteCascade="false" table="provider"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="mcc_mnc_network" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="valid_from" nullable="true" remarks="" size="13" type="date"/>
+         <column autoUpdated="false" digits="0" id="5" name="valid_to" nullable="true" remarks="" size="13" type="date"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="mccmnc2provider_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="mccmnc2provider_mcc_mnc_idx" unique="false">
+            <column ascending="true" name="mcc_mnc_sim"/>
+            <column ascending="true" name="mcc_mnc_network"/>
+         </index>
+         <index name="mccmnc2provider_provider_id" unique="false">
+            <column ascending="true" name="provider_id"/>
+         </index>
+      </table>
+      <table name="ne_50m_admin_0_countries" numRows="241" remarks="shp2pgsql -d -W LATIN1 -c -D -s 4326 -I ne_50m_admin_0_countries.shp  &gt; ne_50m_admin_0_countries.sql&#10;ALTER TABLE ne_50m_admin_0_countries DROP CONSTRAINT enforce_srid_the_geom;&#10;update ne_50m_admin_0_countries set the_geom=(ST_TRANSFORM(the_geom, 900913));&#10;alter table ne_50m_admin_0_countries add CONSTRAINT enforce_srid_the_geom CHECK (st_srid(the_geom) = 900913);" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('ne_50m_admin_0_countries_gid_seq'::regclass)" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="scalerank" nullable="true" remarks="" size="5" type="int2"/>
+         <column autoUpdated="false" digits="0" id="2" name="featurecla" nullable="true" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="3" name="labelrank" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="4" name="sovereignt" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="sov_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="6" name="adm0_dif" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="7" name="level" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="8" name="type" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="admin" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="adm0_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="11" name="geou_dif" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="12" name="geounit" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="13" name="gu_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="14" name="su_dif" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="15" name="subunit" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="16" name="su_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="17" name="brk_diff" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="18" name="name" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="19" name="name_long" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="20" name="brk_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="21" name="brk_name" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="22" name="brk_group" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="23" name="abbrev" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="24" name="postal" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="25" name="formal_en" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="26" name="formal_fr" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="27" name="note_adm0" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="28" name="note_brk" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="29" name="name_sort" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="30" name="name_alt" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="31" name="mapcolor7" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="32" name="mapcolor8" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="33" name="mapcolor9" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="34" name="mapcolor13" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="35" name="pop_est" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="36" name="gdp_md_est" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="37" name="pop_year" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="38" name="lastcensus" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="39" name="gdp_year" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="40" name="economy" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="41" name="income_grp" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="42" name="wikipedia" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="43" name="fips_10" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="44" name="iso_a2" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="45" name="iso_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="46" name="iso_n3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="47" name="un_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="48" name="wb_a2" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="49" name="wb_a3" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="50" name="woe_id" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="51" name="adm0_a3_is" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="52" name="adm0_a3_us" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="53" name="adm0_a3_un" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="54" name="adm0_a3_wb" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="55" name="continent" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="56" name="region_un" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="57" name="subregion" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="58" name="region_wb" nullable="true" remarks="" size="254" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="59" name="name_len" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="60" name="long_len" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="61" name="abbrev_len" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="62" name="tiny" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="63" name="homepart" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="64" name="the_geom" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="ne_50m_admin_0_countries_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="ne_50m_admin_0_countries_iso_a2_idx" unique="false">
+            <column ascending="true" name="iso_a2"/>
+         </index>
+         <index name="ne_50m_admin_0_countries_the_geom_gist" unique="false">
+            <column ascending="true" name="the_geom"/>
+         </index>
+      </table>
+      <table name="network_type" numRows="23" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('network_type_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="false" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="group_name" nullable="false" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="aggregate" nullable="true" remarks="" size="2147483647" type="_varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="type" nullable="false" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="technology_order" nullable="false" remarks="" size="10" type="int4"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="network_type_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="network_type_group_name_idx" unique="false">
+            <column ascending="true" name="group_name"/>
+         </index>
+         <index name="network_type_type_idx" unique="false">
+            <column ascending="true" name="type"/>
+         </index>
+      </table>
+      <table name="news" numRows="2" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('news_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="6" id="1" name="time" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="2" name="title_en" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="title_de" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="4" name="text_en" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="5" name="text_de" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="6" name="active" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="7" name="force" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="8" name="plattform" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="9" name="max_software_version_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="10" name="min_software_version_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="11" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="uid" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="news_time_idx" unique="false">
+            <column ascending="true" name="time"/>
+         </index>
+      </table>
+      <table name="ping" numRows="7708770" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('ping_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="19" type="bigserial"/>
+         <column autoUpdated="false" digits="0" id="1" name="test_id" nullable="true" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="ping_test_id_fkey" implied="false" onDeleteCascade="true" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="2" name="value" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="3" name="value_server" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="4" name="time_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="ping_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="ping_test_id_key" unique="false">
+            <column ascending="true" name="test_id"/>
+         </index>
+      </table>
+      <table name="plz2001" numRows="2056" remarks="shp2pgsql -d -W LATIN1 -c -D -s 97064 -I PLZ2001.shp&#10;update plz2001 set the_geom=(ST_TRANSFORM(the_geom, 900913));" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('plz2001_gid_seq'::regclass)" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="objectid" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="plz_4" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="fläche" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="4" name="plz_3" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="shape_leng" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="6" name="shape_area" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="7" name="the_geom" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="plz2001_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="plz2001_the_geom_gist" unique="false">
+            <column ascending="true" name="the_geom"/>
+         </index>
+      </table>
+      <table name="provider" numRows="65" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('provider_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial">
+            <child column="provider_id" foreignKey="as2provider_provider_id_fkey" implied="false" onDeleteCascade="false" table="as2provider"/>
+            <child column="provider_id" foreignKey="mccmnc2provider_provider_id_fkey" implied="false" onDeleteCascade="false" table="mccmnc2provider"/>
+            <child column="mobile_provider_id" foreignKey="test_mobile_provider_id_fkey" implied="false" onDeleteCascade="false" table="test"/>
+            <child column="provider_id" foreignKey="test_provider_fkey" implied="false" onDeleteCascade="false" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="mcc_mnc" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="shortname" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="map_filter" nullable="false" remarks="" size="1" type="bool"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="provider_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="provider_mcc_mnc_idx" unique="false">
+            <column ascending="true" name="mcc_mnc"/>
+         </index>
+      </table>
+      <table name="qos_test_desc" numRows="269" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('qos_test_desc_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="desc_key" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="2" name="value" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="lang" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="qos_test_desc_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="qos_test_desc_desc_key_idx" unique="false">
+            <column ascending="true" name="desc_key"/>
+         </index>
+         <index name="qos_test_desc_desc_key_lang_key" unique="true">
+            <column ascending="true" name="desc_key"/>
+            <column ascending="true" name="lang"/>
+         </index>
+      </table>
+      <table name="qos_test_objective" numRows="98" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('qos_test_objective_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial">
+            <child column="qos_test_uid" foreignKey="qos_test_result_qos_test_uid_fkey" implied="false" onDeleteCascade="true" table="qos_test_result"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="test" nullable="false" remarks="" size="2147483647" type="qostest"/>
+         <column autoUpdated="false" digits="0" id="2" name="test_class" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="test_server" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="concurrency_group" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="test_desc" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="test_summary" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" defaultValue="'{}'::json" digits="0" id="7" name="param" nullable="false" remarks="" size="2147483647" type="json"/>
+         <column autoUpdated="false" digits="0" id="8" name="results" nullable="true" remarks="" size="2147483647" type="json"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="qos_test_objective_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+      </table>
+      <table name="qos_test_result" numRows="45310471" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('qos_test_result_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="_result_old" nullable="true" remarks="" size="2147483647" type="hstore"/>
+         <column autoUpdated="false" digits="0" id="2" name="test_uid" nullable="true" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="qos_test_result_test_uid" implied="false" onDeleteCascade="true" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="qos_test_uid" nullable="true" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="qos_test_result_qos_test_uid_fkey" implied="false" onDeleteCascade="true" table="qos_test_objective"/>
+         </column>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="4" name="success_count" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="5" name="failure_count" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="6" name="implausible" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="7" name="deleted" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" defaultValue="'{}'::json" digits="0" id="8" name="result" nullable="false" remarks="" size="2147483647" type="json"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="qos_test_result_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="fki_qos_test_result_qos_test_uid_fkey" unique="false">
+            <column ascending="true" name="qos_test_uid"/>
+         </index>
+         <index name="fki_qos_test_result_test_uid" unique="false">
+            <column ascending="true" name="test_uid"/>
+         </index>
+      </table>
+      <table name="qos_test_type_desc" numRows="8" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('qos_test_type_desc_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="test" nullable="true" remarks="" size="2147483647" type="qostest"/>
+         <column autoUpdated="false" digits="0" id="2" name="test_desc" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="3" name="test_name" nullable="true" remarks="" size="2147483647" type="text"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="qos_test_type_desc_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="qos_test_type_desc_test_key" unique="true">
+            <column ascending="true" name="test"/>
+         </index>
+      </table>
+      <table name="raster_columns" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="r_table_catalog" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="1" name="r_table_schema" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="2" name="r_table_name" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="3" name="r_raster_column" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="4" name="srid" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="17" id="5" name="scale_x" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="6" name="scale_y" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="7" name="blocksize_x" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="8" name="blocksize_y" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="9" name="same_alignment" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="10" name="regular_blocking" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="11" name="num_bands" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="12" name="pixel_types" nullable="true" remarks="" size="2147483647" type="_text"/>
+         <column autoUpdated="false" digits="17" id="13" name="nodata_values" nullable="true" remarks="" size="17" type="_float8"/>
+         <column autoUpdated="false" digits="0" id="14" name="out_db" nullable="true" remarks="" size="1" type="_bool"/>
+         <column autoUpdated="false" digits="0" id="15" name="extent" nullable="true" remarks="" size="2147483647" type="geometry"/>
+      </table>
+      <table name="raster_overviews" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="o_table_catalog" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="1" name="o_table_schema" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="2" name="o_table_name" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="3" name="o_raster_column" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="4" name="r_table_catalog" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="5" name="r_table_schema" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="6" name="r_table_name" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="7" name="r_raster_column" nullable="true" remarks="" size="2147483647" type="name"/>
+         <column autoUpdated="false" digits="0" id="8" name="overview_factor" nullable="true" remarks="" size="10" type="int4"/>
+      </table>
+      <table name="settings" numRows="22" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('settings_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="key" nullable="false" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="lang" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="value" nullable="false" remarks="" size="2147483647" type="varchar"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="settings_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="settings_key_lang_idx" unique="false">
+            <column ascending="true" name="key"/>
+            <column ascending="true" name="lang"/>
+         </index>
+         <index name="settings_key_lang_key" unique="true">
+            <column ascending="true" name="key"/>
+            <column ascending="true" name="lang"/>
+         </index>
+      </table>
+      <table name="si_municipality" numRows="212" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('si_municipality_gid_seq'::regclass)" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="17" id="1" name="ob_mid" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="2" name="ob_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="ob_ime" nullable="true" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="ob_uime" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="ob_dj" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="ob_tip" nullable="true" remarks="" size="1" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="d_od" nullable="true" remarks="" size="13" type="date"/>
+         <column autoUpdated="false" digits="17" id="8" name="povrsina" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="9" name="y_c" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="10" name="x_c" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="11" name="geom" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="si_municipality_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="si_municipality_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="si_regions" numRows="12" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('si_regions_gid_seq'::regclass)" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="id" nullable="true" remarks="" size="2" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="ime" nullable="true" remarks="" size="21" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="preb_s" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="4" name="preb_m" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="5" name="preb_z" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="6" name="s_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="7" name="m_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="8" name="z_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="9" name="s_15_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="10" name="m_15_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="11" name="z_15_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="12" name="s_65" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="13" name="m_65" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="14" name="z_65" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="15" name="del_s_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="16" name="del_m_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="17" name="del_z_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="18" name="del_s15_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="19" name="del_m15_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="20" name="del_z15_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="21" name="del_s_65" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="22" name="del_m_65" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="23" name="del_z_65" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="24" name="ind_fem" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="25" name="star_s" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="26" name="star_m" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="27" name="star_z" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="28" name="ind_star_s" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="29" name="ind_star_m" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="30" name="ind_star_z" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="31" name="gost_preb" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="32" name="del_tujci" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="33" name="del_exyu" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="34" name="del_eu" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="35" name="del_ostalo" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="36" name="s0_4" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="37" name="m_0_4" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="38" name="z_0_4" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="39" name="s5_9" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="40" name="m_5_9" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="41" name="z_5_9" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="42" name="s10_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="43" name="m_10_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="44" name="z_10_14" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="45" name="s15_19" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="46" name="m_15_19" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="47" name="z_15_19" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="48" name="s20_24" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="49" name="m_20_24" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="50" name="z_20_24" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="51" name="s25_29" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="52" name="m_25_29" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="53" name="z_25_29" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="54" name="s30_34" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="55" name="m_30_34" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="56" name="z_30_34" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="57" name="s35_39" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="58" name="m_35_39" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="59" name="z_35_39" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="60" name="s40_44" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="61" name="m_40_44" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="62" name="z_40_44" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="63" name="s45_49" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="64" name="m_45_49" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="65" name="z_45_49" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="66" name="s50_54" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="67" name="m_50_54" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="68" name="z_50_54" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="69" name="s55_59" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="70" name="m_55_59" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="71" name="z_55_59" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="72" name="s60_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="73" name="m_60_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="74" name="z_60_64" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="75" name="s65_69" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="76" name="m_65_69" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="77" name="z_65_69" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="78" name="s70_74" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="79" name="m_70_74" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="80" name="z_70_74" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="81" name="s75_79" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="82" name="m_75_79" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="83" name="z_75_79" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="84" name="s80_84" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="85" name="m_80_84" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="86" name="z_80_84" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="87" name="s85_89" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="88" name="m_85_89" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="89" name="z_85_89" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="90" name="s90_94" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="91" name="m_90_94" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="92" name="z_90_99" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="93" name="s95_99" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="94" name="m_95_99" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="95" name="z_95_99" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="96" name="s100" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="97" name="m_100" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="98" name="z_100" nullable="true" remarks="" size="131089" type="numeric"/>
+         <column autoUpdated="false" digits="0" id="99" name="geom" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="si_regions_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="si_regions_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="si_settlements" numRows="6035" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('si_settlements_gid_seq'::regclass)" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="ob_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="ob_ime" nullable="true" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="ob_uime" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="ob_dj" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="5" name="na_mid" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="6" name="na_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="na_ime" nullable="true" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="na_uime" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="na_dj" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="d_od_g" nullable="true" remarks="" size="13" type="date"/>
+         <column autoUpdated="false" digits="17" id="11" name="na_pov" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="y_c" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="x_c" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="14" name="geom" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="si_settlements_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="si_settlements_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="si_whitespaces" numRows="350" remarks="shp2pgsql -W LATIN1 -a -D -s 3912 -I si_whitespaces.shp &gt; si_whitespaces.sql&#10;TRUNCATE TABLE si_whitespaces;" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('si_whitespaces_gid_seq'::regclass)" digits="0" id="0" name="gid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="ob_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="2" name="ob_ime" nullable="true" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="ob_uime" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="ob_dj" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="5" name="na_mid" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="6" name="na_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="na_ime" nullable="true" remarks="" size="30" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="na_uime" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="na_dj" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="d_od_g" nullable="true" remarks="" size="13" type="date"/>
+         <column autoUpdated="false" digits="17" id="11" name="na_pov" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="y_c" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="x_c" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="14" name="lokacija" nullable="true" remarks="" size="5" type="int2"/>
+         <column autoUpdated="false" digits="0" id="15" name="geom" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <primaryKey column="gid" sequenceNumberInPK="1"/>
+         <index name="si_whitespaces_pkey" unique="true">
+            <column ascending="true" name="gid"/>
+         </index>
+         <index name="si_whitespaces_geom_idx" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+         <index name="si_whitespaces_geom_idx1" unique="false">
+            <column ascending="true" name="geom"/>
+         </index>
+      </table>
+      <table name="signal" numRows="815348" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('signal_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="19" type="bigserial"/>
+         <column autoUpdated="false" digits="0" id="1" name="test_id" nullable="true" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="signal_test_id_fkey" implied="false" onDeleteCascade="true" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="2" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="3" name="signal_strength" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="network_type_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="wifi_link_speed" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="6" name="gsm_bit_error_rate" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="7" name="wifi_rssi" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="8" name="time_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="9" name="lte_rsrp" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="10" name="lte_rsrq" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="11" name="lte_rssnr" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="12" name="lte_cqi" nullable="true" remarks="" size="10" type="int4"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="signal_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="signal_test_id_key" unique="false">
+            <column ascending="true" name="test_id"/>
+         </index>
+      </table>
+      <table name="spatial_ref_sys" numRows="3912" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="srid" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="1" name="auth_name" nullable="true" remarks="" size="256" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="auth_srid" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="3" name="srtext" nullable="true" remarks="" size="2048" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="proj4text" nullable="true" remarks="" size="2048" type="varchar"/>
+         <primaryKey column="srid" sequenceNumberInPK="1"/>
+         <index name="spatial_ref_sys_pkey" unique="true">
+            <column ascending="true" name="srid"/>
+         </index>
+      </table>
+      <table name="status" numRows="13529380" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('status_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="client_uuid" nullable="false" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="6" id="2" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="3" name="plattform" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="model" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="product" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="device" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="software_version_code" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="api_level" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="9" name="ip" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="10" name="age" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="17" id="11" name="lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="12" name="long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="13" name="accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="14" name="altitude" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="15" name="speed" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="16" name="provider" nullable="true" remarks="" size="50" type="varchar"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="status_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+      </table>
+      <table name="sync_group" numRows="47" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('sync_group_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial">
+            <child column="sync_group_id" foreignKey="client_sync_group_id" implied="false" onDeleteCascade="false" table="client"/>
+         </column>
+         <column autoUpdated="false" digits="6" id="1" name="tstamp" nullable="false" remarks="" size="35" type="timestamptz"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="sync_group_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+      </table>
+      <table name="test" numRows="918456" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('test_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="19" type="bigserial">
+            <child column="test_id" foreignKey="cell_location_test_id_fkey" implied="false" onDeleteCascade="true" table="cell_location"/>
+            <child column="test_id" foreignKey="location_test_id_fkey" implied="false" onDeleteCascade="true" table="geo_location"/>
+            <child column="test_id" foreignKey="ping_test_id_fkey" implied="false" onDeleteCascade="true" table="ping"/>
+            <child column="test_uid" foreignKey="qos_test_result_test_uid" implied="false" onDeleteCascade="true" table="qos_test_result"/>
+            <child column="test_id" foreignKey="signal_test_id_fkey" implied="false" onDeleteCascade="true" table="signal"/>
+            <child column="test_id" foreignKey="test_ndt_test_id_fkey" implied="false" onDeleteCascade="true" table="test_ndt"/>
+            <child column="test_uid" foreignKey="test_stat_test_uid_fkey" implied="false" onDeleteCascade="false" table="test_stat"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="0" id="2" name="client_id" nullable="true" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="test_client_id_fkey" implied="false" onDeleteCascade="true" table="client"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="3" name="client_version" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="client_name" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="client_language" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="client_local_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="token" nullable="true" remarks="" size="500" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="8" name="server_id" nullable="true" remarks="id of test server used" size="10" type="int4">
+            <parent column="uid" foreignKey="test_test_server_id_fkey" implied="false" onDeleteCascade="false" table="test_server"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="9" name="port" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="10" name="use_ssl" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="6" id="11" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="12" name="speed_upload" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="13" name="speed_download" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="14" name="ping_shortest" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="15" name="encryption" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="16" name="client_public_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="17" name="plattform" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="18" name="os_version" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="19" name="api_level" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="20" name="device" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="21" name="model" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="22" name="product" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="23" name="phone_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="24" name="data_state" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="25" name="network_country" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="26" name="network_operator" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="27" name="network_operator_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="28" name="network_sim_country" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="29" name="network_sim_operator" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="30" name="network_sim_operator_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="31" name="wifi_ssid" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="32" name="wifi_bssid" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="33" name="wifi_network_id" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="34" name="duration" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="35" name="num_threads" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="36" name="status" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="37" name="timezone" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="38" name="bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="39" name="bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="40" name="nsec_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="41" name="nsec_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="42" name="server_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="43" name="client_software_version" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="44" name="geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="45" name="geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="46" name="network_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="47" name="location" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <column autoUpdated="false" digits="0" id="48" name="signal_strength" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="49" name="software_revision" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="50" name="client_test_counter" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="51" name="nat_type" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="52" name="client_previous_test_status" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="53" name="public_ip_asn" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="17" id="54" name="speed_upload_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="55" name="speed_download_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="56" name="total_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="57" name="total_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="58" name="wifi_link_speed" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="59" name="public_ip_rdns" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="60" name="public_ip_as_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="61" name="test_slot" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="62" name="provider_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="uid" foreignKey="test_provider_fkey" implied="false" onDeleteCascade="false" table="provider"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="63" name="network_is_roaming" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="17" id="64" name="ping_shortest_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="65" name="run_ndt" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="66" name="num_threads_requested" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="67" name="client_public_ip_anonymized" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="68" name="zip_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="69" name="geo_provider" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="70" name="geo_accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="71" name="deleted" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="72" name="comment" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="73" name="open_uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="6" id="74" name="client_time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="75" name="zip_code_geo" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="76" name="mobile_provider_id" nullable="true" remarks="" size="10" type="int4">
+            <parent column="uid" foreignKey="test_mobile_provider_id_fkey" implied="false" onDeleteCascade="false" table="provider"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="77" name="roaming_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="78" name="open_test_uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="0" id="79" name="country_asn" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="80" name="country_location" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="81" name="test_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="82" name="test_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" defaultValue="false" digits="0" id="83" name="implausible" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="84" name="testdl_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="85" name="testdl_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="86" name="testul_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="87" name="testul_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="88" name="country_geoip" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="89" name="location_max_distance" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="90" name="location_max_distance_gps" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="91" name="network_group_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="92" name="network_group_type" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="93" name="time_dl_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="94" name="time_ul_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="95" name="num_threads_ul" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="96" name="timestamp" nullable="true" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="97" name="source_ip" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="98" name="lte_rsrp" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="99" name="lte_rsrq" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="100" name="mobile_network_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="101" name="mobile_sim_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="17" id="102" name="dist_prev" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="103" name="speed_prev" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="104" name="tag" nullable="true" remarks="" size="512" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="105" name="client_ip_local" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="106" name="client_ip_local_anonymized" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="107" name="client_ip_local_type" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="108" name="ping_median" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="17" id="109" name="ping_median_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="110" name="source_ip_anonymized" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="111" name="hidden_code" nullable="true" remarks="" size="8" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="112" name="data" nullable="true" remarks="" size="2147483647" type="json"/>
+         <column autoUpdated="false" digits="17" id="113" name="real_geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="114" name="real_geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="115" name="real_location" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="116" name="publish_public_data" nullable="false" remarks="" size="1" type="bool"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="test_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="download_idx" unique="false">
+            <column ascending="true" name="bytes_download"/>
+            <column ascending="true" name="network_type"/>
+         </index>
+         <index name="location_idx" unique="false">
+            <column ascending="true" name="location"/>
+         </index>
+         <index name="test_client_id_idx" unique="false">
+            <column ascending="true" name="client_id"/>
+         </index>
+         <index name="test_deleted_idx" unique="false">
+            <column ascending="true" name="deleted"/>
+         </index>
+         <index name="test_device_idx" unique="false">
+            <column ascending="true" name="device"/>
+         </index>
+         <index name="test_geo_accuracy_idx" unique="false">
+            <column ascending="true" name="geo_accuracy"/>
+         </index>
+         <index name="test_idx" unique="false"/>
+         <index name="test_mobile_network_id_idx" unique="false">
+            <column ascending="true" name="mobile_network_id"/>
+         </index>
+         <index name="test_mobile_provider_id_idx" unique="false">
+            <column ascending="true" name="mobile_provider_id"/>
+         </index>
+         <index name="test_network_operator_idx" unique="false">
+            <column ascending="true" name="network_operator"/>
+         </index>
+         <index name="test_network_type_idx" unique="false">
+            <column ascending="true" name="network_type"/>
+         </index>
+         <index name="test_open_test_uuid_idx" unique="false">
+            <column ascending="true" name="open_test_uuid"/>
+         </index>
+         <index name="test_open_uuid_idx" unique="false">
+            <column ascending="true" name="open_uuid"/>
+         </index>
+         <index name="test_ping_median_log_idx" unique="false">
+            <column ascending="true" name="ping_median_log"/>
+         </index>
+         <index name="test_ping_shortest_log_idx" unique="false">
+            <column ascending="true" name="ping_shortest_log"/>
+         </index>
+         <index name="test_provider_id_idx" unique="false">
+            <column ascending="true" name="provider_id"/>
+         </index>
+         <index name="test_speed_download_log_idx" unique="false">
+            <column ascending="true" name="speed_download_log"/>
+         </index>
+         <index name="test_speed_upload_log_idx" unique="false">
+            <column ascending="true" name="speed_upload_log"/>
+         </index>
+         <index name="test_status_finished2_idx" unique="false">
+            <column ascending="true" name="network_type"/>
+         </index>
+         <index name="test_status_finished_idx" unique="false">
+            <column ascending="true" name="network_type"/>
+         </index>
+         <index name="test_status_idx" unique="false">
+            <column ascending="true" name="status"/>
+         </index>
+         <index name="test_test_slot_idx" unique="false">
+            <column ascending="true" name="test_slot"/>
+         </index>
+         <index name="test_time_idx" unique="false">
+            <column ascending="true" name="time"/>
+         </index>
+         <index name="test_uuid_key" unique="true">
+            <column ascending="true" name="uuid"/>
+         </index>
+         <index name="test_zip_code_idx" unique="false">
+            <column ascending="true" name="zip_code"/>
+         </index>
+      </table>
+      <table name="test_ndt" numRows="4779" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('test_ndt_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial"/>
+         <column autoUpdated="false" digits="0" id="1" name="test_id" nullable="true" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="test_ndt_test_id_fkey" implied="false" onDeleteCascade="true" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="17" id="2" name="s2cspd" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="3" name="c2sspd" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="4" name="avgrtt" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="5" name="main" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="6" name="stat" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="7" name="diag" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="8" name="time_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="9" name="time_end_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="test_ndt_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="test_ndt_test_id_idx" unique="false">
+            <column ascending="true" name="test_id"/>
+         </index>
+         <index name="test_ndt_test_id_unique" unique="true">
+            <column ascending="true" name="test_id"/>
+         </index>
+      </table>
+      <table name="test_server" numRows="9" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('test_server_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="10" type="serial">
+            <child column="server_id" foreignKey="test_test_server_id_fkey" implied="false" onDeleteCascade="false" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="2" name="web_address" nullable="true" remarks="" size="500" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="3" name="port" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="4" name="port_ssl" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="5" name="city" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="country" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="7" name="geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="8" name="geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="9" name="location" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <column autoUpdated="false" digits="0" id="10" name="web_address_ipv4" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="11" name="web_address_ipv6" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="12" name="server_type" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" defaultValue="0" digits="0" id="13" name="priority" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="1" digits="0" id="14" name="weight" nullable="false" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" defaultValue="true" digits="0" id="15" name="active" nullable="false" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" defaultValue="uuid_generate_v4()" digits="0" id="16" name="uuid" nullable="false" remarks="" size="2147483647" type="uuid"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="test_server_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+      </table>
+      <table name="test_speed" numRows="358819820" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('test_speed_uid_seq'::regclass)" digits="0" id="0" name="uid" nullable="false" remarks="" size="19" type="bigserial"/>
+         <column autoUpdated="false" digits="0" id="1" name="test_id" nullable="false" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="2" name="upload" nullable="false" remarks="f=down,t=up" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="3" name="thread" nullable="false" remarks="" size="5" type="int2"/>
+         <column autoUpdated="false" digits="0" id="4" name="time" nullable="false" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="5" name="bytes" nullable="false" remarks="" size="19" type="int8"/>
+         <primaryKey column="uid" sequenceNumberInPK="1"/>
+         <index name="test_speed_pkey" unique="true">
+            <column ascending="true" name="uid"/>
+         </index>
+         <index name="test_speed_test_id_key" unique="false">
+            <column ascending="true" name="test_id"/>
+         </index>
+      </table>
+      <table name="test_stat" numRows="576266" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" digits="0" id="0" name="test_uid" nullable="false" remarks="" size="19" type="int8">
+            <parent column="uid" foreignKey="test_stat_test_uid_fkey" implied="false" onDeleteCascade="false" table="test"/>
+         </column>
+         <column autoUpdated="false" digits="0" id="1" name="cpu_usage" nullable="true" remarks="" size="2147483647" type="json"/>
+         <column autoUpdated="false" digits="0" id="2" name="mem_usage" nullable="true" remarks="" size="2147483647" type="json"/>
+         <primaryKey column="test_uid" sequenceNumberInPK="1"/>
+         <index name="test_stat_pkey" unique="true">
+            <column ascending="true" name="test_uid"/>
+         </index>
+      </table>
+      <table name="v_test" numRows="0" remarks="" schema="public" type="VIEW">
+         <column autoUpdated="false" digits="0" id="0" name="uid" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="1" name="uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="0" id="2" name="client_id" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="3" name="client_version" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="4" name="client_name" nullable="true" remarks="" size="2147483647" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="5" name="client_language" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="6" name="token" nullable="true" remarks="" size="500" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="7" name="server_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="8" name="port" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="9" name="use_ssl" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="6" id="10" name="time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="11" name="speed_upload" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="12" name="speed_download" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="13" name="ping_shortest" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="14" name="encryption" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="15" name="client_public_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="16" name="plattform" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="17" name="os_version" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="18" name="api_level" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="19" name="device" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="20" name="model" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="21" name="product" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="22" name="phone_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="23" name="data_state" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="24" name="network_country" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="25" name="network_operator" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="26" name="network_operator_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="27" name="network_sim_country" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="28" name="network_sim_operator" nullable="true" remarks="" size="10" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="29" name="network_sim_operator_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="30" name="wifi_ssid" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="31" name="wifi_bssid" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="32" name="wifi_network_id" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="33" name="duration" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="34" name="num_threads" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="35" name="status" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="36" name="timezone" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="37" name="bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="38" name="bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="39" name="nsec_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="40" name="nsec_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="41" name="server_ip" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="42" name="client_software_version" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="43" name="geo_lat" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="44" name="geo_long" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="45" name="network_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="46" name="location" nullable="true" remarks="" size="2147483647" type="geometry"/>
+         <column autoUpdated="false" digits="0" id="47" name="signal_strength" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="48" name="software_revision" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="49" name="client_test_counter" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="50" name="nat_type" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="51" name="client_previous_test_status" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="52" name="public_ip_asn" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="17" id="53" name="speed_upload_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="54" name="speed_download_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="55" name="total_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="56" name="total_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="57" name="wifi_link_speed" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="58" name="public_ip_rdns" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="59" name="public_ip_as_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="60" name="test_slot" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="61" name="provider_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="62" name="network_is_roaming" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="17" id="63" name="ping_shortest_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="64" name="run_ndt" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="65" name="num_threads_requested" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="66" name="client_public_ip_anonymized" nullable="true" remarks="" size="100" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="67" name="zip_code" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="68" name="geo_provider" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="17" id="69" name="geo_accuracy" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="70" name="deleted" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="71" name="comment" nullable="true" remarks="" size="2147483647" type="text"/>
+         <column autoUpdated="false" digits="0" id="72" name="open_uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="6" id="73" name="client_time" nullable="true" remarks="" size="35" type="timestamptz"/>
+         <column autoUpdated="false" digits="0" id="74" name="zip_code_geo" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="75" name="mobile_provider_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="76" name="roaming_type" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="77" name="open_test_uuid" nullable="true" remarks="" size="2147483647" type="uuid"/>
+         <column autoUpdated="false" digits="0" id="78" name="country_asn" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="79" name="country_location" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="80" name="test_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="81" name="test_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="82" name="implausible" nullable="true" remarks="" size="1" type="bool"/>
+         <column autoUpdated="false" digits="0" id="83" name="testdl_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="84" name="testdl_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="85" name="testul_if_bytes_download" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="86" name="testul_if_bytes_upload" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="87" name="country_geoip" nullable="true" remarks="" size="2" type="bpchar"/>
+         <column autoUpdated="false" digits="0" id="88" name="location_max_distance" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="89" name="location_max_distance_gps" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="90" name="network_group_name" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="91" name="network_group_type" nullable="true" remarks="" size="200" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="92" name="time_dl_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="93" name="time_ul_ns" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="0" id="94" name="num_threads_ul" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="6" id="95" name="timestamp" nullable="true" remarks="" size="29" type="timestamp"/>
+         <column autoUpdated="false" digits="0" id="96" name="source_ip" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="97" name="lte_rsrp" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="98" name="lte_rsrq" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="99" name="mobile_network_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="0" id="100" name="mobile_sim_id" nullable="true" remarks="" size="10" type="int4"/>
+         <column autoUpdated="false" digits="17" id="101" name="dist_prev" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="17" id="102" name="speed_prev" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="103" name="tag" nullable="true" remarks="" size="512" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="104" name="ping_median" nullable="true" remarks="" size="19" type="int8"/>
+         <column autoUpdated="false" digits="17" id="105" name="ping_median_log" nullable="true" remarks="" size="17" type="float8"/>
+         <column autoUpdated="false" digits="0" id="106" name="source_ip_anonymized" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="107" name="client_ip_local" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="108" name="client_ip_local_anonymized" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="109" name="client_ip_local_type" nullable="true" remarks="" size="50" type="varchar"/>
+         <column autoUpdated="false" digits="0" id="110" name="merged_signal" nullable="true" remarks="" size="10" type="int4"/>
+      </table>
+   </tables>
+</database>

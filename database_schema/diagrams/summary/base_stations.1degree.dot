@@ -1,0 +1,42 @@
+// dot 2.38.0 on Windows 8 6.2
+// SchemaSpy rev 590
+digraph "base_stations" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "base_stations" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">base_stations</TD></TR>
+      <TR><TD PORT="uid" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">uid</TD></TR>
+      <TR><TD PORT="technology" COLSPAN="3" ALIGN="LEFT">technology</TD></TR>
+      <TR><TD PORT="location_name" COLSPAN="3" ALIGN="LEFT">location_name</TD></TR>
+      <TR><TD PORT="longitude" COLSPAN="3" ALIGN="LEFT">longitude</TD></TR>
+      <TR><TD PORT="latitude" COLSPAN="3" ALIGN="LEFT">latitude</TD></TR>
+      <TR><TD PORT="mnc" COLSPAN="3" ALIGN="LEFT">mnc</TD></TR>
+      <TR><TD PORT="ci" COLSPAN="3" ALIGN="LEFT">ci</TD></TR>
+      <TR><TD PORT="lac" COLSPAN="3" ALIGN="LEFT">lac</TD></TR>
+      <TR><TD PORT="enb" COLSPAN="3" ALIGN="LEFT">enb</TD></TR>
+      <TR><TD PORT="physical_cell_id" COLSPAN="3" ALIGN="LEFT">physical_cell_id</TD></TR>
+      <TR><TD PORT="eci" COLSPAN="3" ALIGN="LEFT">eci</TD></TR>
+      <TR><TD PORT="tac" COLSPAN="3" ALIGN="LEFT">tac</TD></TR>
+      <TR><TD PORT="rf_band" COLSPAN="3" ALIGN="LEFT">rf_band</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">26.779 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/base_stations.html"
+    tooltip="base_stations"
+  ];
+}

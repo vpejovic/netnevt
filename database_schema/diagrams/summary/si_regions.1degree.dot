@@ -1,0 +1,129 @@
+// dot 2.38.0 on Windows 8 6.2
+// SchemaSpy rev 590
+digraph "si_regions" {
+  graph [
+    rankdir="RL"
+    bgcolor="#f7f7f7"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "si_regions" [
+    label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="3" BGCOLOR="#9bab96" ALIGN="CENTER">si_regions</TD></TR>
+      <TR><TD PORT="gid" COLSPAN="3" BGCOLOR="#bed1b8" ALIGN="LEFT">gid</TD></TR>
+      <TR><TD PORT="id" COLSPAN="3" ALIGN="LEFT">id</TD></TR>
+      <TR><TD PORT="ime" COLSPAN="3" ALIGN="LEFT">ime</TD></TR>
+      <TR><TD PORT="preb_s" COLSPAN="3" ALIGN="LEFT">preb_s</TD></TR>
+      <TR><TD PORT="preb_m" COLSPAN="3" ALIGN="LEFT">preb_m</TD></TR>
+      <TR><TD PORT="preb_z" COLSPAN="3" ALIGN="LEFT">preb_z</TD></TR>
+      <TR><TD PORT="s_14" COLSPAN="3" ALIGN="LEFT">s_14</TD></TR>
+      <TR><TD PORT="m_14" COLSPAN="3" ALIGN="LEFT">m_14</TD></TR>
+      <TR><TD PORT="z_14" COLSPAN="3" ALIGN="LEFT">z_14</TD></TR>
+      <TR><TD PORT="s_15_64" COLSPAN="3" ALIGN="LEFT">s_15_64</TD></TR>
+      <TR><TD PORT="m_15_64" COLSPAN="3" ALIGN="LEFT">m_15_64</TD></TR>
+      <TR><TD PORT="z_15_64" COLSPAN="3" ALIGN="LEFT">z_15_64</TD></TR>
+      <TR><TD PORT="s_65" COLSPAN="3" ALIGN="LEFT">s_65</TD></TR>
+      <TR><TD PORT="m_65" COLSPAN="3" ALIGN="LEFT">m_65</TD></TR>
+      <TR><TD PORT="z_65" COLSPAN="3" ALIGN="LEFT">z_65</TD></TR>
+      <TR><TD PORT="del_s_14" COLSPAN="3" ALIGN="LEFT">del_s_14</TD></TR>
+      <TR><TD PORT="del_m_14" COLSPAN="3" ALIGN="LEFT">del_m_14</TD></TR>
+      <TR><TD PORT="del_z_14" COLSPAN="3" ALIGN="LEFT">del_z_14</TD></TR>
+      <TR><TD PORT="del_s15_64" COLSPAN="3" ALIGN="LEFT">del_s15_64</TD></TR>
+      <TR><TD PORT="del_m15_64" COLSPAN="3" ALIGN="LEFT">del_m15_64</TD></TR>
+      <TR><TD PORT="del_z15_64" COLSPAN="3" ALIGN="LEFT">del_z15_64</TD></TR>
+      <TR><TD PORT="del_s_65" COLSPAN="3" ALIGN="LEFT">del_s_65</TD></TR>
+      <TR><TD PORT="del_m_65" COLSPAN="3" ALIGN="LEFT">del_m_65</TD></TR>
+      <TR><TD PORT="del_z_65" COLSPAN="3" ALIGN="LEFT">del_z_65</TD></TR>
+      <TR><TD PORT="ind_fem" COLSPAN="3" ALIGN="LEFT">ind_fem</TD></TR>
+      <TR><TD PORT="star_s" COLSPAN="3" ALIGN="LEFT">star_s</TD></TR>
+      <TR><TD PORT="star_m" COLSPAN="3" ALIGN="LEFT">star_m</TD></TR>
+      <TR><TD PORT="star_z" COLSPAN="3" ALIGN="LEFT">star_z</TD></TR>
+      <TR><TD PORT="ind_star_s" COLSPAN="3" ALIGN="LEFT">ind_star_s</TD></TR>
+      <TR><TD PORT="ind_star_m" COLSPAN="3" ALIGN="LEFT">ind_star_m</TD></TR>
+      <TR><TD PORT="ind_star_z" COLSPAN="3" ALIGN="LEFT">ind_star_z</TD></TR>
+      <TR><TD PORT="gost_preb" COLSPAN="3" ALIGN="LEFT">gost_preb</TD></TR>
+      <TR><TD PORT="del_tujci" COLSPAN="3" ALIGN="LEFT">del_tujci</TD></TR>
+      <TR><TD PORT="del_exyu" COLSPAN="3" ALIGN="LEFT">del_exyu</TD></TR>
+      <TR><TD PORT="del_eu" COLSPAN="3" ALIGN="LEFT">del_eu</TD></TR>
+      <TR><TD PORT="del_ostalo" COLSPAN="3" ALIGN="LEFT">del_ostalo</TD></TR>
+      <TR><TD PORT="s0_4" COLSPAN="3" ALIGN="LEFT">s0_4</TD></TR>
+      <TR><TD PORT="m_0_4" COLSPAN="3" ALIGN="LEFT">m_0_4</TD></TR>
+      <TR><TD PORT="z_0_4" COLSPAN="3" ALIGN="LEFT">z_0_4</TD></TR>
+      <TR><TD PORT="s5_9" COLSPAN="3" ALIGN="LEFT">s5_9</TD></TR>
+      <TR><TD PORT="m_5_9" COLSPAN="3" ALIGN="LEFT">m_5_9</TD></TR>
+      <TR><TD PORT="z_5_9" COLSPAN="3" ALIGN="LEFT">z_5_9</TD></TR>
+      <TR><TD PORT="s10_14" COLSPAN="3" ALIGN="LEFT">s10_14</TD></TR>
+      <TR><TD PORT="m_10_14" COLSPAN="3" ALIGN="LEFT">m_10_14</TD></TR>
+      <TR><TD PORT="z_10_14" COLSPAN="3" ALIGN="LEFT">z_10_14</TD></TR>
+      <TR><TD PORT="s15_19" COLSPAN="3" ALIGN="LEFT">s15_19</TD></TR>
+      <TR><TD PORT="m_15_19" COLSPAN="3" ALIGN="LEFT">m_15_19</TD></TR>
+      <TR><TD PORT="z_15_19" COLSPAN="3" ALIGN="LEFT">z_15_19</TD></TR>
+      <TR><TD PORT="s20_24" COLSPAN="3" ALIGN="LEFT">s20_24</TD></TR>
+      <TR><TD PORT="m_20_24" COLSPAN="3" ALIGN="LEFT">m_20_24</TD></TR>
+      <TR><TD PORT="z_20_24" COLSPAN="3" ALIGN="LEFT">z_20_24</TD></TR>
+      <TR><TD PORT="s25_29" COLSPAN="3" ALIGN="LEFT">s25_29</TD></TR>
+      <TR><TD PORT="m_25_29" COLSPAN="3" ALIGN="LEFT">m_25_29</TD></TR>
+      <TR><TD PORT="z_25_29" COLSPAN="3" ALIGN="LEFT">z_25_29</TD></TR>
+      <TR><TD PORT="s30_34" COLSPAN="3" ALIGN="LEFT">s30_34</TD></TR>
+      <TR><TD PORT="m_30_34" COLSPAN="3" ALIGN="LEFT">m_30_34</TD></TR>
+      <TR><TD PORT="z_30_34" COLSPAN="3" ALIGN="LEFT">z_30_34</TD></TR>
+      <TR><TD PORT="s35_39" COLSPAN="3" ALIGN="LEFT">s35_39</TD></TR>
+      <TR><TD PORT="m_35_39" COLSPAN="3" ALIGN="LEFT">m_35_39</TD></TR>
+      <TR><TD PORT="z_35_39" COLSPAN="3" ALIGN="LEFT">z_35_39</TD></TR>
+      <TR><TD PORT="s40_44" COLSPAN="3" ALIGN="LEFT">s40_44</TD></TR>
+      <TR><TD PORT="m_40_44" COLSPAN="3" ALIGN="LEFT">m_40_44</TD></TR>
+      <TR><TD PORT="z_40_44" COLSPAN="3" ALIGN="LEFT">z_40_44</TD></TR>
+      <TR><TD PORT="s45_49" COLSPAN="3" ALIGN="LEFT">s45_49</TD></TR>
+      <TR><TD PORT="m_45_49" COLSPAN="3" ALIGN="LEFT">m_45_49</TD></TR>
+      <TR><TD PORT="z_45_49" COLSPAN="3" ALIGN="LEFT">z_45_49</TD></TR>
+      <TR><TD PORT="s50_54" COLSPAN="3" ALIGN="LEFT">s50_54</TD></TR>
+      <TR><TD PORT="m_50_54" COLSPAN="3" ALIGN="LEFT">m_50_54</TD></TR>
+      <TR><TD PORT="z_50_54" COLSPAN="3" ALIGN="LEFT">z_50_54</TD></TR>
+      <TR><TD PORT="s55_59" COLSPAN="3" ALIGN="LEFT">s55_59</TD></TR>
+      <TR><TD PORT="m_55_59" COLSPAN="3" ALIGN="LEFT">m_55_59</TD></TR>
+      <TR><TD PORT="z_55_59" COLSPAN="3" ALIGN="LEFT">z_55_59</TD></TR>
+      <TR><TD PORT="s60_64" COLSPAN="3" ALIGN="LEFT">s60_64</TD></TR>
+      <TR><TD PORT="m_60_64" COLSPAN="3" ALIGN="LEFT">m_60_64</TD></TR>
+      <TR><TD PORT="z_60_64" COLSPAN="3" ALIGN="LEFT">z_60_64</TD></TR>
+      <TR><TD PORT="s65_69" COLSPAN="3" ALIGN="LEFT">s65_69</TD></TR>
+      <TR><TD PORT="m_65_69" COLSPAN="3" ALIGN="LEFT">m_65_69</TD></TR>
+      <TR><TD PORT="z_65_69" COLSPAN="3" ALIGN="LEFT">z_65_69</TD></TR>
+      <TR><TD PORT="s70_74" COLSPAN="3" ALIGN="LEFT">s70_74</TD></TR>
+      <TR><TD PORT="m_70_74" COLSPAN="3" ALIGN="LEFT">m_70_74</TD></TR>
+      <TR><TD PORT="z_70_74" COLSPAN="3" ALIGN="LEFT">z_70_74</TD></TR>
+      <TR><TD PORT="s75_79" COLSPAN="3" ALIGN="LEFT">s75_79</TD></TR>
+      <TR><TD PORT="m_75_79" COLSPAN="3" ALIGN="LEFT">m_75_79</TD></TR>
+      <TR><TD PORT="z_75_79" COLSPAN="3" ALIGN="LEFT">z_75_79</TD></TR>
+      <TR><TD PORT="s80_84" COLSPAN="3" ALIGN="LEFT">s80_84</TD></TR>
+      <TR><TD PORT="m_80_84" COLSPAN="3" ALIGN="LEFT">m_80_84</TD></TR>
+      <TR><TD PORT="z_80_84" COLSPAN="3" ALIGN="LEFT">z_80_84</TD></TR>
+      <TR><TD PORT="s85_89" COLSPAN="3" ALIGN="LEFT">s85_89</TD></TR>
+      <TR><TD PORT="m_85_89" COLSPAN="3" ALIGN="LEFT">m_85_89</TD></TR>
+      <TR><TD PORT="z_85_89" COLSPAN="3" ALIGN="LEFT">z_85_89</TD></TR>
+      <TR><TD PORT="s90_94" COLSPAN="3" ALIGN="LEFT">s90_94</TD></TR>
+      <TR><TD PORT="m_90_94" COLSPAN="3" ALIGN="LEFT">m_90_94</TD></TR>
+      <TR><TD PORT="z_90_99" COLSPAN="3" ALIGN="LEFT">z_90_99</TD></TR>
+      <TR><TD PORT="s95_99" COLSPAN="3" ALIGN="LEFT">s95_99</TD></TR>
+      <TR><TD PORT="m_95_99" COLSPAN="3" ALIGN="LEFT">m_95_99</TD></TR>
+      <TR><TD PORT="z_95_99" COLSPAN="3" ALIGN="LEFT">z_95_99</TD></TR>
+      <TR><TD PORT="s100" COLSPAN="3" ALIGN="LEFT">s100</TD></TR>
+      <TR><TD PORT="m_100" COLSPAN="3" ALIGN="LEFT">m_100</TD></TR>
+      <TR><TD PORT="z_100" COLSPAN="3" ALIGN="LEFT">z_100</TD></TR>
+      <TR><TD PORT="geom" COLSPAN="3" BGCOLOR="#f4f7da" ALIGN="LEFT">geom</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#f7f7f7">  </TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">12 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#f7f7f7">  </TD></TR>
+    </TABLE>>
+    URL="tables/si_regions.html"
+    tooltip="si_regions"
+  ];
+}
