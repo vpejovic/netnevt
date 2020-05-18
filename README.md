@@ -11,7 +11,7 @@ Potrebno je, da je nameščen tudi [Jupyter] strežnik.
 [RICERCANDO]: https://github.com/ivek1312/ricercando
 [Jupyter]: http://jupyter.org/install
 
-Inštalacija in uporaba
+Uporaba
 ------------
 Ko so predpogoji izpolnjeni in Jupyter strežnik aktiven, notebook lahko odpremo iz brskalnika. 
 
